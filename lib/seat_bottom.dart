@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SeatBottom extends StatelessWidget {
@@ -32,7 +33,34 @@ class SeatBottom extends StatelessWidget {
             width: 200,
             height: 56,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                showCupertinoDialog(
+                  context: context,
+                  builder: (context) => CupertinoAlertDialog(
+                    title: Text("예매 하시겠습니까?"),
+                    actions: [
+                      CupertinoDialogAction(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          "취소",
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      ),
+                      CupertinoDialogAction(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text(
+                          "확인",
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
               style: ElevatedButton.styleFrom(backgroundColor: Colors.amber),
               child: Text(
                 'Book now',
