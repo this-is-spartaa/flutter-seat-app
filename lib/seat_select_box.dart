@@ -26,8 +26,39 @@ class SeatSelectBox extends StatelessWidget {
           row(4),
           SizedBox(height: 10),
           row(5),
+          SizedBox(height: 10),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              seatInfo('Available', Colors.grey),
+              SizedBox(width: 4),
+              seatInfo('Selected', Colors.amber),
+            ],
+          ),
         ],
       ),
+    );
+  }
+
+  Row seatInfo(String text, Color color) {
+    return Row(
+      children: [
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 14,
+          ),
+        ),
+        SizedBox(width: 4),
+        Container(
+          width: 20,
+          height: 20,
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(4),
+          ),
+        )
+      ],
     );
   }
 
